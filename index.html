@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Korner Market | Your Neighborhood Convenience Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        #siteHeader {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+        }
+        #siteHeader.header-scrolled {
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        body.menu-open {
+            overflow: hidden;
+        }
+        .burger-line {
+            transition: transform 0.25s ease, opacity 0.25s ease;
+        }
+        .burger-open .line-1 {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .burger-open .line-2 {
+            opacity: 0;
+        }
+        .burger-open .line-3 {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+    <!-- HEADER -->
+    <header id="siteHeader" class="fixed top-0 left-0 w-full z-50 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4 md:py-5">
+
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <img src="korner-logo.png" class="w-10 h-10 rounded-full object-cover" alt="Korner Market Logo">
+                    <span class="font-semibold text-lg tracking-wide text-white md:text-slate-900">
+                        Korner Market
+                    </span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-8 font-medium">
+                    <a href="#deals" class="text-white md:text-slate-900 hover:opacity-70">Weekly Deals</a>
+                    <a href="#essentials" class="text-white md:text-slate-900 hover:opacity-70">Essentials</a>
+                    <a href="#hotfood" class="text-white md:text-slate-900 hover:opacity-70">Hot Food</a>
+                    <a href="#contact" class="text-white md:text-slate-900 hover:opacity-70">Contact</a>
+                    <a href="#order" class="inline-flex items-center px-4 py-2 rounded-full bg-black text-white hover:bg-slate-800">
+                        Order Ahead
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="menuToggle" class="md:hidden inline-flex items-center justify-center w-10 h-10 border border-white/50 text-white rounded-full">
+                    <div id="burgerIcon" class="relative w-5 h-5 flex flex-col justify-between">
+                        <span class="burger-line line-1 h-[2px] w-full bg-white"></span>
+                        <span class="burger-line line-2 h-[2px] w-full bg-white"></span>
+                        <span class="burger-line line-3 h-[2px] w-full bg-white"></span>
+                    </div>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden md:hidden z-40">
+            <div class="absolute top-0 right-0 w-64 h-full bg-white shadow-xl p-6 flex flex-col gap-6">
+                <button id="closeMenu" class="self-end text-slate-600 hover:text-black">✕</button>
+
+                <a href="#deals" class="font-semibold text-slate-900">Weekly Deals</a>
+                <a href="#essentials" class="font-semibold text-slate-900">Store Essentials</a>
+                <a href="#hotfood" class="font-semibold text-slate-900">Hot & Fresh Food</a>
+                <a href="#contact" class="font-semibold text-slate-900">Contact</a>
+
+                <a href="#order" class="inline-flex items-center justify-center px-4 py-2 rounded-full bg-black text-white hover:bg-slate-800 mt-4">
+                    Order Ahead
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-screen w-full overflow-hidden">
+        <video class="absolute inset-0 w-full h-full object-cover"
+               autoplay loop muted playsinline>
+            <source src="korner-video.mp4" type="video/mp4">
+        </video>
+
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+            <img src="korner-logo.png" class="w-32 h-32 rounded-full object-cover mb-6 shadow-lg" />
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">
+                Your Neighborhood Korner Market
+            </h1>
+            <p class="max-w-xl text-lg mb-8 text-white/90">
+                Snacks, drinks, groceries, essentials & hot food — open late, always convenient.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#order" class="px-8 py-3 bg-white text-black rounded-full font-semibold hover:bg-slate-100">
+                    Order Ahead
+                </a>
+                <a href="#deals" class="px-8 py-3 border border-white/70 rounded-full text-white font-semibold hover:bg-white/10">
+                    View Weekly Deals
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEALS SECTION -->
+    <section id="deals" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Weekly Deals</h2>
+                <p class="max-w-2xl mx-auto text-slate-600">
+                    Highlight drink specials, snack deals, fuel promotions, or limited-time hot food offers.
+                </p>
+            </div>
+
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="border rounded-2xl overflow-hidden shadow hover:shadow-md transition">
+                    <div class="aspect-square bg-slate-100">
+                        <img src="https://via.placeholder.com/400?text=Energy+Drinks" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">2 for $5 Energy Drinks</h3>
+                        <p class="text-sm text-slate-600">Mix & match all your favorites.</p>
+                    </div>
+                </div>
+
+                <div class="border rounded-2xl overflow-hidden shadow hover:shadow-md transition">
+                    <div class="aspect-square bg-slate-100">
+                        <img src="https://via.placeholder.com/400?text=Snacks" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Snack Combos</h3>
+                        <p class="text-sm text-slate-600">Chips + drink specials daily.</p>
+                    </div>
+                </div>
+
+                <div class="border rounded-2xl overflow-hidden shadow hover:shadow-md transition">
+                    <div class="aspect-square bg-slate-100">
+                        <img src="https://via.placeholder.com/400?text=Drinks" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">$1 Fountain Drinks</h3>
+                        <p class="text-sm text-slate-600">Any size. All day.</p>
+                    </div>
+                </div>
+
+                <div class="border rounded-2xl overflow-hidden shadow hover:shadow-md transition">
+                    <div class="aspect-square bg-slate-100">
+                        <img src="https://via.placeholder.com/400?text=Hot+Food" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg">Hot Food Specials</h3>
+                        <p class="text-sm text-slate-600">Pizza slices, breakfast tacos, more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESSENTIALS SECTION -->
+    <section id="essentials" class="py-20 bg-slate-50">
+        <div class="max-w-6xl mx-auto px4 grid gap-12 lg:grid-cols-2 items-center">
+            <div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Everyday Essentials</h2>
+                <p class="text-slate-700 mb-4">
+                    Groceries, toiletries, pantry items, household goods — everything you need, right around the corner.
+                </p>
+                <p class="text-slate-700 mb-4">
+                    Fresh milk, bread, eggs, cold drinks, snacks, candy, ice, and more.
+                </p>
+                <p class="text-slate-700">
+                    Whether you're making a quick stop or stocking up on the basics, Korner Market has you covered.
+                </p>
+            </div>
+
+            <div class="rounded-3xl overflow-hidden shadow-md bg-slate-200">
+                <img src="https://via.placeholder.com/800x600?text=Store+Aisle" class="w-full h-full object-cover" />
+            </div>
+        </div>
+    </section>
+
+    <!-- HOT FOOD SECTION -->
+    <section id="hotfood" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Hot & Fresh Food</h2>
+                <p class="max-w-2xl mx-auto text-slate-600">
+                    Breakfast tacos, pizza slices, hot sandwiches, wings, corn, sausages — whatever your store serves.
+                </p>
+            </div>
+
+            <div class="grid gap-10 md:grid-cols-3">
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/300?text=Breakfast+Tacos" class="rounded-xl shadow mb-4 w-full h-52 object-cover" />
+                    <h3 class="font-semibold text-lg">Breakfast Tacos</h3>
+                    <p class="text-sm text-slate-600">Fresh every morning.</p>
+                </div>
+
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/300?text=Pizza+Slices" class="rounded-xl shadow mb-4 w-full h-52 object-cover" />
+                    <h3 class="font-semibold text-lg">Pizza Slices</h3>
+                    <p class="text-sm text-slate-600">Hot, cheesy, fast.</p>
+                </div>
+
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/300?text=Snacks+To+Go" class="rounded-xl shadow mb-4 w-full h-52 object-cover" />
+                    <h3 class="font-semibold text-lg">Snacks To Go</h3>
+                    <p class="text-sm text-slate-600">Wings, tenders, corn, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">Get in Touch</h2>
+            <p class="text-white/80 max-w-xl mx-auto mb-8">
+                Need help, have questions, or want to check product availability? Reach out anytime.
+            </p>
+
+            <p class="text-lg font-semibold mb-1">📍 1905 N Illinois Ave, Brownsville, TX 78521</p>
+            <p class="text-lg font-semibold mb-1">📞 (956) 831-9744</p>
+            <p class="text-lg font-semibold">🕒 Open 7 Days a Week</p>
+        </div>
+    </section>
+
+    <!-- ORDER AHEAD CTA -->
+    <section id="order" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 grid gap-12 lg:grid-cols-2 items-center">
+            <div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Order Ahead. Skip the Line.</h2>
+                <p class="text-slate-700 mb-4">
+                    Let customers order drinks, snacks, essentials, or hot food online for pickup.
+                </p>
+                <p class="text-slate-700">
+                    Connect to DoorDash, UberEats, Toast, or your own ordering page.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mt-6">
+                    <a href="#" class="px-6 py-3 bg-black text-white rounded-full font-semibold hover:bg-slate-800">
+                        Order for Pickup
+                    </a>
+                    <a href="#" class="px-6 py-3 border border-slate-300 rounded-full font-semibold hover:bg-slate-50">
+                        Delivery Options
+                    </a>
+                </div>
+            </div>
+
+            <div class="rounded-3xl overflow-hidden shadow-md bg-slate-200">
+                <img src="https://via.placeholder.com/800x600?text=Korner+Market+Ordering" class="w-full h-full object-cover" />
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 py-8 bg-white">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-slate-500">
+                © <span id="yearSpan"></span> Korner Market. All rights reserved.
+            </p>
+            <div class="flex gap-4 text-sm text-slate-500">
+                <a href="#" class="hover:text-slate-800">Privacy Policy</a>
+                <a href="#" class="hover:text-slate-800">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        const header = document.getElementById('siteHeader');
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const burgerIcon = document.getElementById('burgerIcon');
+        const yearSpan = document.getElementById('yearSpan');
+
+        yearSpan.textContent = new Date().getFullYear();
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled', 'py-2');
+            } else {
+                header.classList.remove('header-scrolled', 'py-2');
+            }
+        });
+
+        function openMenu() {
+            mobileMenu.classList.remove('hidden');
+            document.body.classList.add('menu-open');
+            burgerIcon.classList.add('burger-open');
+        }
+
+        function closeMenuFn() {
+            mobileMenu.classList.add('hidden');
+            document.body.classList.remove('menu-open');
+            burgerIcon.classList.remove('burger-open');
+        }
+
+        menuToggle.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('hidden')) openMenu();
+            else closeMenuFn();
+        });
+
+        if (closeMenu) closeMenu.addEventListener('click', closeMenuFn);
+    </script>
+
+</body>
+</html>
